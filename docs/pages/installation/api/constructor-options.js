@@ -296,20 +296,6 @@ export default [
                 values: '—',
                 default: '—'
             },
-            {
-                name: '<code>defaultClockpickerHoursLabel</code>',
-                description: `Default clockpicker <code>hours-label</code> attribute`,
-                type: 'String',
-                values: '—',
-                default: `<code>Hours</code>`
-            },
-            {
-                name: '<code>defaultClockpickerMinutesLabel</code>',
-                description: `Default clockpicker <code>minutes-label</code> attribute`,
-                type: 'String',
-                values: '—',
-                default: `<code>Min</code>`
-            }
         ]
     }
 ]

@@ -43,50 +43,13 @@ $steps-divider-height: .2em !default;
                 }
             }
 
-            &:not(:first-child), &:only-child {
+            &:not(:first-child) {
                 &::before {
                     height: $steps-divider-height;
                     width: 100%;
                     bottom: 0;
                     left: -50%;
                     top: #{$size};
-                }
-            }
-            &:only-child {
-                &::after {
-                    height: $steps-divider-height;
-                    bottom: 0;
-                    top: #{$size};
-                }
-                &::before, &::after {
-                    width: 25%;
-                    left: 50%;
-                }
-                &::before {
-                    right: 50%;
-                    left: auto;
-                }
-            }
-
-            @include until($tablet) {
-                &:not(.is-active) {
-                    display: none;
-                }
-
-                &::before, &::after, &:not(:first-child)::before {
-                    // This will contain the divider
-                    content: " ";
-                    display: block;
-                    position: absolute;
-                    height: $steps-divider-height;
-                    width: 25%;
-                    bottom: 0;
-                    left: 50%;
-                    top: #{$size};
-                }
-                &::before, &:not(:first-child)::before {
-                    right: 50%;
-                    left: auto;
                 }
             }
         }
@@ -131,7 +94,7 @@ $steps-divider-height: .2em !default;
                     $color-invert: nth($pair, 2);
 
                     &.is-#{$name} {
-                        &::before, &::after {
+                        &::before {
                             background: linear-gradient(to left, $steps-default-color 50%, $color 50%);
                             background-size: 200% 100%;
                             background-position: right bottom;
@@ -143,7 +106,7 @@ $steps-divider-height: .2em !default;
                                 color: $color;
                             }
 
-                            &::before, &::after {
+                            &::before {
                                 background-position: left bottom;
                             }
                         }
@@ -153,7 +116,7 @@ $steps-divider-height: .2em !default;
                                 background-color: $color;
                             }
 
-                            &::before, &::after {
+                            &::before {
                                 background-position: left bottom;
                             }
                         }
@@ -168,7 +131,7 @@ $steps-divider-height: .2em !default;
                     text-align: center;
                 }
 
-                &:not(:first-child), &:only-child {
+                &:not(:first-child) {
                     flex-basis: 1em;
                     flex-grow: 1;
                     flex-shrink: 1;
@@ -180,16 +143,8 @@ $steps-divider-height: .2em !default;
                         position: absolute;
                     }
                 }
-                &:only-child {
-                    &::after {
-                        // This will contain the divider
-                        content: " ";
-                        display: block;
-                        position: absolute;
-                    }
-                }
 
-                &::before, &::after {
+                &::before {
                     background: linear-gradient(to left, $steps-default-color 50%, $steps-active-color 50%);
                     background-size: 200% 100%;
                     background-position: right bottom;
@@ -206,7 +161,7 @@ $steps-divider-height: .2em !default;
                         color: $steps-active-color;
                     }
 
-                    &::before, &::after {
+                    &::before {
                         background-position: left bottom;
                     }
                 }
@@ -216,7 +171,7 @@ $steps-divider-height: .2em !default;
                         background-color: $steps-previous-color;
                     }
 
-                    &::before, &::after {
+                    &::before {
                         background-position: left bottom;
                     }
                 }

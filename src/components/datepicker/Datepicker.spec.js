@@ -25,7 +25,7 @@ describe('BDatepicker', () => {
                 defaultMonthNames: 'A string!',
                 defaultDayNames: 'A string!',
                 defaultFirstDayOfWeek: 'A string!',
-                focusedDate: newDate(2018, 7, 1)
+                focusedDate: new Date('2018-07')
             }))
 
             wrapper = shallowMount(BDatepicker, {
@@ -47,7 +47,7 @@ describe('BDatepicker', () => {
             defaultMonthNames,
             defaultDayNames,
             defaultFirstDayOfWeek,
-            focusedDate: newDate(2018, 7, 1)
+            focusedDate: new Date('2018-07')
         }))
 
         defaultProps = () => ({

@@ -295,7 +295,7 @@ export default {
         },
 
         removeTag(index) {
-            const tag = this.tags.splice(index, 1)[0]
+            var tag = this.tags.splice(index, 1)[0]
             this.$emit('input', this.tags)
             this.$emit('remove', tag)
             return tag

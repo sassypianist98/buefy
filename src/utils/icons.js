@@ -1,5 +1,4 @@
 import config from '../utils/config'
-import {merge} from '../utils/helpers'
 
 let mdiIcons = {
     sizes: {
@@ -42,7 +41,7 @@ let icons = {
 }
 
 if (config.customIconPacks) {
-    icons = merge(icons, config.customIconPacks)
+    Object.assign(icons, config.customIconPacks)
 }
 
 export default icons

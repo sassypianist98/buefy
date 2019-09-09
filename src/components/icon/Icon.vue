@@ -14,7 +14,6 @@
 </template>
 
 <script>
-import {merge} from '../../utils/helpers'
 import config from '../../utils/config'
 import icons from '../../utils/icons'
 
@@ -32,11 +31,10 @@ export default {
     },
     computed: {
         iconConfig() {
-            let allIcons = icons
             if (config.customIconPacks) {
-                allIcons = merge(icons, config.customIconPacks)
+                Object.assign(icons, config.customIconPacks)
             }
-            return allIcons[this.newPack]
+            return icons[this.newPack]
         },
         iconPrefix() {
             if (this.iconConfig && this.iconConfig.iconPrefix) {

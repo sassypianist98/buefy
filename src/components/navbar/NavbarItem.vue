@@ -2,9 +2,6 @@
     <component
         :is="tag"
         class="navbar-item"
-        :class="{
-            'is-active': active
-        }"
         v-bind="$attrs"
     >
         <slot/>
@@ -21,8 +18,7 @@ export default {
         tag: {
             type: String,
             default: 'a'
-        },
-        active: Boolean
+        }
     },
     methods: {
         /**
@@ -42,12 +38,7 @@ export default {
         handleClickEvent(event) {
             const isOnWhiteList = clickableWhiteList.some((item) => item === event.target.localName)
             if (!isOnWhiteList) {
-                if (this.$parent.$data._isNavDropdown) {
-                    this.$parent.closeMenu()
-                    this.$parent.$parent.closeMenu()
-                } else {
-                    this.$parent.closeMenu()
-                }
+                this.$parent.closeMenu()
             }
         }
     },

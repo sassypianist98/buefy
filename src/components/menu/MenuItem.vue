@@ -7,8 +7,7 @@
                 'is-active': newActive,
                 'is-disabled': disabled
             }"
-            @click="onClick($event)"
-            @click.native="onClick($event)">
+            @click="onClick($event)">
             <b-icon
                 v-if="icon"
                 :icon="icon"

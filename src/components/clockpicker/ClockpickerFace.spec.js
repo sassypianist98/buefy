@@ -10,9 +10,7 @@ describe('BClockpickerFace', () => {
     beforeEach(() => {
         wrapper = shallowMount(BClockpickerFace, {
             propsData: {
-                pickerSize,
-                min: 0,
-                max: 23
+                pickerSize
             }
         })
     })
@@ -24,14 +22,6 @@ describe('BClockpickerFace', () => {
 
     it('render correctly', () => {
         expect(wrapper.html()).toMatchSnapshot()
-    })
-
-    it('returns countPerRing correctly', () => {
-        const count = wrapper.vm.max - wrapper.vm.min + 1
-        expect(wrapper.vm.countPerRing).toEqual(count)
-
-        wrapper.setProps({double: true})
-        expect(wrapper.vm.countPerRing).toEqual(count / 2)
     })
 
     it('returns radius correctly', () => {
@@ -54,12 +44,8 @@ describe('BClockpickerFace', () => {
     })
 
     it('set inputValue when value changed', () => {
-        wrapper.vm.inputValue = 2
         wrapper.setProps({value: 2})
         expect(wrapper.vm.inputValue).toEqual(2)
-
-        wrapper.setProps({value: 3})
-        expect(wrapper.vm.inputValue).toEqual(3)
     })
 
     it('calls disabledValues function when isDisabled is called', () => {

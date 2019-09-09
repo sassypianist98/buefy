@@ -2,17 +2,17 @@
     <section>
         <div class="block">
             <b-icon
-                pack="ionicons"
+                pack="icon"
                 icon="person"
                 size="is-small">
             </b-icon>
             <b-icon
-                pack="ionicons"
+                pack="icon"
                 icon="home"
                 size="is-small">
             </b-icon>
             <b-icon
-                pack="ionicons"
+                pack="icon"
                 icon="apps"
                 size="is-small">
             </b-icon>
@@ -20,32 +20,32 @@
 
         <div class="block">
             <b-icon
-                pack="ionicons"
+                pack="icon"
                 icon="person">
             </b-icon>
             <b-icon
-                pack="ionicons"
+                pack="icon"
                 icon="home">
             </b-icon>
             <b-icon
-                pack="ionicons"
+                pack="icon"
                 icon="apps">
             </b-icon>
         </div>
 
         <div class="block">
             <b-icon
-                pack="ionicons"
+                pack="icon"
                 icon="person"
                 size="is-medium">
             </b-icon>
             <b-icon
-                pack="ionicons"
+                pack="icon"
                 icon="home"
                 size="is-medium">
             </b-icon>
             <b-icon
-                pack="ionicons"
+                pack="icon"
                 icon="apps"
                 size="is-medium">
             </b-icon>
@@ -53,19 +53,19 @@
 
         <div class="block">
             <b-icon
-                pack="ionicons"
+                pack="icon"
                 icon="person"
                 size="is-large"
                 type="is-success">
             </b-icon>
             <b-icon
-                pack="ionicons"
+                pack="icon"
                 icon="home"
                 size="is-large"
                 type="is-info">
             </b-icon>
             <b-icon
-                pack="ionicons"
+                pack="icon"
                 icon="apps"
                 size="is-large"
                 type="is-primary">
@@ -73,66 +73,29 @@
         </div>
 
         <button class="button is-dark">
-            <b-icon pack="ionicons" icon="checkmark"></b-icon>
+            <b-icon pack="icon" icon="checkmark"></b-icon>
             <span>Finish</span>
         </button>
 
         <button class="button is-warning">
-            <b-icon pack="ionicons" icon="checkmark"></b-icon>
+            <b-icon pack="icon" icon="checkmark"></b-icon>
             <span>Finish</span>
         </button>
 
         <button class="button is-warning">
             <b-icon
-                pack="ionicons"
+                pack="icon"
                 icon="refresh">
             </b-icon>
             <span>Refresh</span>
         </button>
-
-        <div class="block">
-            <p>
-                Can also customize some properties of the default icon packs. In this example, default sizes for FontAwesome have been modified.
-            </p>
-            <b-icon
-                pack="fas"
-                icon="user"
-                size="is-small"
-                type="is-success">
-            </b-icon>
-            <b-icon
-                pack="fas"
-                icon="user"
-                type="is-info">
-            </b-icon>
-            <b-icon
-                pack="fas"
-                icon="user"
-                size="is-medium"
-                type="is-danger">
-            </b-icon>
-            <b-icon
-                pack="fas"
-                icon="user"
-                size="is-large"
-                type="is-primary">
-            </b-icon>
-        </div>
     </section>
 </template>
 
 <script>
     const customIconConfig = {
         customIconPacks: {
-            'fas': {
-                sizes: {
-                    'default': 'fa-sm',
-                    'is-small': 'fa-xs',
-                    'is-medium': 'fa-lg',
-                    'is-large': 'fa-2x'
-                }
-            },
-            'ionicons': {
+            'icon': {
                 sizes: {
                     'default': 'is-size-5',
                     'is-small': '',

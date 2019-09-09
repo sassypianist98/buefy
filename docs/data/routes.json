@@ -111,8 +111,7 @@
             "/",
             "documentation",
             "documentation/icon"
-        ],
-        "isUpdated": true
+        ]
     },
     "documentation/tooltip": {
         "title": "Tooltip",
@@ -149,7 +148,7 @@
             "documentation",
             "documentation/navbar"
         ],
-        "isUpdated": true
+        "isNew": true
     },
     "documentation/tabs": {
         "title": "Tabs",
@@ -317,7 +316,8 @@
             "/",
             "documentation",
             "documentation/switch"
-        ]
+        ],
+        "isUpdated": true
     },
     "documentation/datepicker": {
         "title": "Datepicker",
@@ -391,7 +391,8 @@
             "/",
             "documentation",
             "documentation/table"
-        ]
+        ],
+        "isUpdated": true
     },
     "documentation/pagination": {
         "title": "Pagination",
@@ -453,8 +454,7 @@
             "/",
             "documentation",
             "documentation/menu"
-        ],
-        "isUpdated": "true"
+        ]
     },
      "documentation/slider": {
         "title": "Slider",
@@ -467,7 +467,7 @@
             "documentation",
             "documentation/slider"
         ],
-        "isUpdated": true
+        "isNew": true
     },
     "documentation/progress": {
         "title": "Progress",
@@ -479,7 +479,8 @@
             "/",
             "documentation",
             "documentation/progress"
-        ]
+        ],
+        "isNew": true
     },
     "extensions": {
         "title": "Extensions",
