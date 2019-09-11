@@ -171,50 +171,53 @@ describe('Visual Regression Testing', () => {
         // Screenshot window
         cy.eyesCheckWindow('Documentation dropdown');
 
-        // // Click "custom trigger" button
-        // cy.get('p.tag')
-        //     .click();
-        // // Screenshot affected elements
-        // cy.eyesCheckWindow({
-        //     sizeMode: 'selector', //mode
-        //     selector: 'div.dropdown-menu:nth-child(3)'
-        // });
+        // Click "custom trigger" button
+        cy.get('p.is-success')
+            .click();
+        // Screenshot affected elements
+        cy.eyesCheckWindow({
+            sizeMode: 'selector', //mode
+            selector: 'div.dropdown-menu:nth-child(3)'
+        });
 
-        // // Click menu button
-        // cy.get('div.example-component:nth-child(2) button')
-        //     .click();
-        // // Screenshot affected elements
-        // cy.eyesCheckWindow({
-        //     sizeMode: 'selector', //mode
-        //     selector: 'div.example-component:nth-child(2) > div.dropdown-content'
-        // });
+        // Click menu button
+        cy.get('.docs-main-container a.navbar-item:first')
+            .click();
+        // Screenshot affected elements
+        cy.eyesCheckWindow({
+            sizeMode: 'selector', //mode
+            selector: 'div.example-component:nth-child(2) > div.dropdown-content'
+        });
 
-        // // Click next menu button
-        // cy.get('div.example-component:nth-child(3) button')
-        //     .click();
-        // // Screenshot affected elements
-        // cy.eyesCheckWindow({
-        //     sizeMode: 'selector', //mode
-        //     selector: 'div.example-component:nth-child(3) > div.dropdown-content'
-        // });
+        // Click next menu button
+        cy.get('.docs-main-container a.navbar-item')
+            .eq(1)
+            .click();
+        // Screenshot affected elements
+        cy.eyesCheckWindow({
+            sizeMode: 'selector', //mode
+            selector: 'div.example-component:nth-child(3) > div.dropdown-content'
+        });
 
-        // // Click "public" button
-        // cy.get('div.example-component:nth-child(4) button')
-        //     .click();
-        // // Screenshot affected elements
-        // cy.eyesCheckWindow({
-        //     sizeMode: 'selector', //mode
-        //     selector: 'div.example-component:nth-child(4) > div.dropdown-content'
-        // });
+        // Click "public" button
+        cy.get('.button.is-primary')
+            .eq(2)
+            .click();
+        // Screenshot affected elements
+        cy.eyesCheckWindow({
+            sizeMode: 'selector', //mode
+            selector: 'div.example-component:nth-child(4) > div.dropdown-content'
+        });
 
-        // // Click "selected" button
-        // cy.get('div.example-component:nth-child(5) button')
-        //     .click();
-        // // Screenshot affected elements
-        // cy.eyesCheckWindow({
-        //     sizeMode: 'selector', //mode
-        //     selector: 'div.example-component:nth-child(5) > div.dropdown-content'
-        // });
+        // Click "selected" button
+        cy.get('.button.is-primary')
+            .eq(3)
+            .click();
+        // Screenshot affected elements
+        cy.eyesCheckWindow({
+            sizeMode: 'selector', //mode
+            selector: 'div.example-component:nth-child(5) > div.dropdown-content'
+        });
     });
 
     it('...documentation/autocomplete should load correct elements on page', () => {
@@ -226,27 +229,24 @@ describe('Visual Regression Testing', () => {
         cy.eyesCheckWindow('Documentation autocomplete');
 
         // Get element and type into input
-        cy.get('div.example-component:first input').type('j')
-            // Screenshot affected elements
+        cy.get('div.example-component:first input').type('j');
+        // Screenshot affected elements
         cy.eyesCheckWindow({
             sizeMode: 'selector',
             selector: '.example-section:nth-child(1)'
         });
 
-        // Get element and type into input
-        cy.get('div.example-component:nth-child(2)').type('d')
-            // Screenshot affected elements
-        cy.eyesCheckWindow({
-            sizeMode: 'selector',
-            selector: '.example-section:nth-child(2)'
-        });
-
         // Click the first switch
-        cy.get('div.example-component:nth-child(2) span:first')
+        cy.get('span.check:first')
             .click();
         // Click the second switch
-        cy.get('div.example-component:nth-child(2) span:nth-child(2)')
+        cy.get('span.check')
+            .eq(1)
             .click();
+        // Get element and type into second input
+        cy.get('input.input')
+            .eq(1)
+            .type('j');
         // Screenshot affected elements
         cy.eyesCheckWindow({
             sizeMode: 'selector',
@@ -254,16 +254,20 @@ describe('Visual Regression Testing', () => {
         });
 
         // Get element and type into input
-        cy.get('div.example-component:nth-child(3) input').type('o')
-            // Screenshot affected elements
+        cy.get('input.input')
+            .eq(2)
+            .type('o');
+        // Screenshot affected elements
         cy.eyesCheckWindow({
             sizeMode: 'selector',
             selector: '.example-section:nth-child(3)'
         });
 
         // Get element and type into input
-        cy.get('div.example-component:nth-child(4) input').type('f')
-            // wait for results to load
+        cy.get('input.input')
+            .eq(3)
+            .type('f');
+        // Wait for results to load
         cy.wait(500);
         // Screenshot affected elements
         cy.eyesCheckWindow({
@@ -272,8 +276,10 @@ describe('Visual Regression Testing', () => {
         });
 
         // Get element and type into input
-        cy.get('div.example-component:nth-child(5) input').type('t')
-            // wait for results to load
+        cy.get('input.input')
+            .eq(4)
+            .type('t');
+        // Wait for results to load
         cy.wait(500);
         // Screenshot affected elements
         cy.eyesCheckWindow({
@@ -309,29 +315,29 @@ describe('Visual Regression Testing', () => {
         cy.eyesCheckWindow('Documentation checkbox');
 
         // Click time button
-        cy.get('span.check:nth-child(1)')
+        cy.get('span.check:first')
             .click();
-        // Enter 12:00 AM
-        cy.get('input:nth-child(1)').type('1200AM')
-            // Screenshot affected components
+        // // Enter 12:00 AM
+        // cy.get('input.input:first').type('1200AM');
+        // Screenshot affected components
         cy.eyesCheckWindow({
             sizeMode: 'selector',
             selector: '.example-component:nth-child(1)'
         });
 
         // Click second time button
-        cy.get('span.check:nth-child(2)')
+        cy.get('span.check')
+            .eq(1)
             .click();
-        // Enter 12:00 AM
-        cy.get('input:nth-child(2)').type('1200PM')
-            // Screenshot affected components
+        // Screenshot affected components
         cy.eyesCheckWindow({
             sizeMode: 'selector',
             selector: '.example-component:nth-child(2)'
         });
 
         // Click third time button
-        cy.get('span.check:nth-child(3)')
+        cy.get('span.check')
+            .eq(2)
             .click();
         // Screenshot affected components
         cy.eyesCheckWindow({
@@ -340,63 +346,79 @@ describe('Visual Regression Testing', () => {
         });
 
         // Click through each bullet
-        cy.get('.control-label:first').click();
+        cy.get('.b-radio:first').click();
         // Screenshot affected components
         cy.eyesCheckWindow({
             sizeMode: 'selector',
             selector: '.column'
         });
         // Click through each bullet
-        cy.get('.control-label:nth-child(2)').click();
+        cy.get('.b-radio')
+            .eq(1)
+            .click();
         // Screenshot affected components
         cy.eyesCheckWindow({
             sizeMode: 'selector',
             selector: '.column'
         });
         // Click through each bullet
-        cy.get('.control-label:nth-child(3)').click();
+        cy.get('.b-radio')
+            .eq(2)
+            .click();
         // Screenshot affected components
         cy.eyesCheckWindow({
             sizeMode: 'selector',
             selector: '.column'
         });
         // Click through each bullet
-        cy.get('.control-label:nth-child(4)').click();
+        cy.get('.b-radio')
+            .eq(3)
+            .click();
         // Screenshot affected components
         cy.eyesCheckWindow({
             sizeMode: 'selector',
             selector: '.column'
         });
         // Click through each bullet
-        cy.get('.control-label:nth-child(5)').click();
+        cy.get('.b-radio')
+            .eq(4)
+            .click();
         // Screenshot affected components
         cy.eyesCheckWindow({
             sizeMode: 'selector',
             selector: '.column'
         });
         // Click through each bullet
-        cy.get('.control-label:nth-child(6)').click();
+        cy.get('.b-radio')
+            .eq(5)
+            .click();
         // Screenshot affected components
         cy.eyesCheckWindow({
             sizeMode: 'selector',
             selector: '.column'
         });
         // Click through each bullet
-        cy.get('.control-label:nth-child(7)').click();
+        cy.get('.b-radio')
+            .eq(6)
+            .click();
         // Screenshot affected components
         cy.eyesCheckWindow({
             sizeMode: 'selector',
             selector: '.column'
         });
         // Click through each bullet
-        cy.get('.control-label:nth-child(8)').click();
+        cy.get('.b-radio')
+            .eq(7)
+            .click();
         // Screenshot affected components
         cy.eyesCheckWindow({
             sizeMode: 'selector',
             selector: '.column'
         });
         // Click through each bullet
-        cy.get('.control-label:nth-child(9)').click();
+        cy.get('.b-radio')
+            .eq(8)
+            .click();
         // Screenshot affected components
         cy.eyesCheckWindow({
             sizeMode: 'selector',
@@ -411,42 +433,6 @@ describe('Visual Regression Testing', () => {
         cy.wait(1000);
         // Screenshot window
         cy.eyesCheckWindow('Documentation datepicker');
-
-        // Click first input button
-        cy.get('input:first')
-            .click();
-        // Screenshot affected elements
-        cy.eyesCheckWindow({
-            sizeMode: 'selector', //mode
-            selector: 'dropdown-content:first' //CSS Selector
-        });
-
-        // Click second input button
-        cy.get('input.input:nth-child(2)')
-            .click();
-        // Screenshot affected elements
-        cy.eyesCheckWindow({
-            sizeMode: 'selector', //mode
-            selector: 'dropdown-content:nth-child(2)' //CSS Selector
-        });
-
-        // Click third input button
-        cy.get('input:nth-child(3)')
-            .click();
-        // Screenshot affected elements
-        cy.eyesCheckWindow({
-            sizeMode: 'selector', //mode
-            selector: 'dropdown-content:nth-child(3)' //CSS Selector
-        });
-
-        // Click fourth input button
-        cy.get('input:nth-child(4)')
-            .click();
-        // Screenshot affected elements
-        cy.eyesCheckWindow({
-            sizeMode: 'selector', //mode
-            selector: 'dropdown-content:nth-child(4)' //CSS Selector
-        });
     });
 
     it('...documentation/field should load correct elements and functionalities on page', () => {
@@ -458,7 +444,8 @@ describe('Visual Regression Testing', () => {
         cy.eyesCheckWindow('Documentation field');
 
         // Click second radio button
-        cy.get('span.check:nth-child(2)')
+        cy.get('.b-radio')
+            .eq(1)
             .click();
         // Screenshot affected elements
         cy.eyesCheckWindow({
@@ -485,8 +472,14 @@ describe('Visual Regression Testing', () => {
         cy.eyesCheckWindow('Documentation number input');
 
         // Click third add button
-        cy.get('.mdi-plus:nth-child(3)')
-            // Screenshot 
+        cy.get('.mdi-plus')
+            .eq(2)
+            .click();
+        // Click fifth add button
+        cy.get('.mdi-plus')
+            .eq(4)
+            .click();
+        // Screenshot 
         cy.eyesCheckWindow({
             sizeMode: 'selector', //mode
             selector: '.example-component:nth-child(1)' //CSS Selector
@@ -519,12 +512,14 @@ describe('Visual Regression Testing', () => {
         // Screenshot window
         cy.eyesCheckWindow('Documentation slider');
 
-        // Tick to 8
-        cy.get('.b-slider-tick-label:nth-child(3)').click;
+        // Tick to 8 in "# Tick and Label"
+        cy.get('.b-slider-tick')
+            .eq(10)
+            .click;
         // Screenshot window 
         cy.eyesCheckWindow({
             sizeMode: 'selector',
-            selector: '.example-component(5)'
+            selector: '.example-component:nth-child(5)'
         });
     });
 
@@ -546,7 +541,8 @@ describe('Visual Regression Testing', () => {
         cy.eyesCheckWindow('Documentation taginput');
 
         // Click first "x" of seventh example
-        cy.get('.delete .is-small:nth-child(1)')
+        cy.get('.delete')
+            .eq(35)
             .click();
         // Screenshot affected components
         cy.eyesCheckWindow({
@@ -590,27 +586,24 @@ describe('Visual Regression Testing', () => {
         // Screenshot window
         cy.eyesCheckWindow('Documentation icon');
 
-        // Click to launch loading
-        cy.get('.example-component:first button:first')
+        // Click to disable full page loading
+        cy.get('span.check:first')
             .click();
-        // Screenshot loading element
+        // Click to enable loading element
+        cy.get('.example-component:first button:first');
+        // Screenshot affected components
         cy.eyesCheckWindow({
             sizeMode: 'selector',
             selector: '.example-component:first'
         });
-        // Click to launch full page loading
-        cy.get('span.check:nth-child(1)')
-            .click();
-        // Screenshot full page
-        cy.eyesCheckWindow('Screenshot full loading');
 
-        // Click twice to stop loading and stop full page loading
-        cy.get('span.check:nth-child(2)')
-            .click();
-        cy.get('span.check:nth-child(2)')
+        // Disable next full loader
+        cy.get('span.check')
+            .eq(1)
             .click();
         // Click next loading button
-        cy.get('.example-component:nth-child(2) button:first')
+        cy.get('button.button')
+            .eq(1)
             .click();
         // Screenshot loading element
         cy.eyesCheckWindow({
@@ -618,19 +611,19 @@ describe('Visual Regression Testing', () => {
             selector: 'section:nth-child(2)'
         });
 
+        // Disable next full loader
+        cy.get('span.check')
+            .eq(2)
+            .click();
         // Click next loading button 
-        cy.get('.example-component:nth-child(3) button:first')
+        cy.get('[class="button is-primary is-medium"]')
+            .eq(2)
             .click();
         // Screenshot loading element
         cy.eyesCheckWindow({
             sizeMode: 'selector',
             selector: 'section:nth-child(3)'
         });
-        // Click to launch full page loading
-        cy.get('span.check:nth-child(3)')
-            .click();
-        // Screenshot full page
-        cy.eyesCheckWindow('Screenshot full loading');
     });
 
     it('...documentation/menu should load correct elements and functionalities on page', () => {
@@ -667,6 +660,8 @@ describe('Visual Regression Testing', () => {
         // Close popup
         cy.get('.modal-close')
             .click();
+        // Wait 0.5 seconds to load page
+        cy.wait(500);
 
         // Click launch card modal (keep scroll)
         cy.get('.example-component:first button:nth-child(2)')
@@ -676,36 +671,48 @@ describe('Visual Regression Testing', () => {
         // Close popup
         cy.get('.modal-close')
             .click();
+        // Wait 0.5 seconds to load page
+        cy.wait(500);
 
         // Click launch component modal
-        cy.get('.example-component:nth-child(2) button')
+        cy.get('[class="button is-primary is-medium"]')
+            .eq(2)
             .click();
         // Screenshot page
         cy.eyesCheckWindow('Screenshot popup');
         // Close popup
-        cy.get('button.modal-card-foot')
+        cy.get('.modal-close')
             .click();
+        // Wait 0.5 seconds to load page
+        cy.wait(500);
 
         // Click launch image modal (HTML)
-        cy.get('.example-component:nth-child(3) button:first')
+        cy.get('[class="button is-primary is-medium"]')
+            .eq(3)
             .click();
         // Screenshot page
         cy.eyesCheckWindow('Screenshot popup');
         // Close popup
         cy.get('.modal-close')
             .click();
+        // Wait 0.5 seconds to load page
+        cy.wait(500);
 
         // Click launch card modal (Component)
-        cy.get('.example-component:nth-child(3) button:nth-child(2)')
+        cy.get('[class="button is-primary is-medium"]')
+            .eq(4)
             .click();
         // Screenshot page
         cy.eyesCheckWindow('Screenshot popup');
         // Close popup
         cy.get('.modal-close')
             .click();
+        // Wait 0.5 seconds to load page
+        cy.wait(500);
 
         // Click launch component modal
-        cy.get('.example-component:nth-child(4) button')
+        cy.get('[class="button is-primary is-medium"]')
+            .eq(5)
             .click();
         // Click remember me
         cy.get('span.check')
@@ -713,8 +720,10 @@ describe('Visual Regression Testing', () => {
         // Screenshot page
         cy.eyesCheckWindow('Screenshot popup');
         // Click close button
-        cy.get('button.button')
+        cy.get('.modal-card-foot')
             .click();
+        // Wait 0.5 seconds to load page
+        cy.wait(500);
         // Screenshot window
         cy.eyesCheckWindow('Screenshot window');
     });
@@ -746,30 +755,33 @@ describe('Visual Regression Testing', () => {
         });
 
         // Click launch notifications
-        cy.get('.example-component:nth-child(5) button:first')
+        cy.get('.button.is-medium')
+            .eq(0)
             .click();
         // Screenshot window
         cy.eyesCheckWindow('Screenshot popup');
         // Click launch notifications custom green
-        cy.get('.example-component:nth-child(5) button:nth-child(2)')
+        cy.get('.button.is-medium')
+            .eq(1)
             .click();
         // Screenshot window
         cy.eyesCheckWindow('Screenshot popup');
         // Click launch notifications custom red
-        cy.get('.example-component:nth-child(5) button:nth-child(3)')
+        cy.get('.button.is-medium')
+            .eq(2)
             .click();
         // Screenshot window
         cy.eyesCheckWindow('Screenshot popup');
     });
 
-    it('...documentation/pagination should load correct elements and functionalities on page', () => {
-        cy.visit(`http://localhost:8080/documentation/pagination`);
+    // it('...documentation/pagination should load correct elements and functionalities on page', () => {
+    //     cy.visit(`http://localhost:8080/documentation/pagination`);
 
-        // Let browser load
-        cy.wait(1000);
-        // Screenshot window
-        cy.eyesCheckWindow('Documentation pagination');
-    });
+    //     // Let browser load
+    //     cy.wait(1000);
+    //     // Screenshot window
+    //     cy.eyesCheckWindow('Documentation pagination');
+    // });
 
     it('...documentation/progress should load correct elements and functionalities on page', () => {
         cy.visit(`http://localhost:8080/documentation/progress`);
@@ -780,10 +792,10 @@ describe('Visual Regression Testing', () => {
         cy.eyesCheckWindow('Documentation progress');
 
         // Trigger indeterminate button
-        cy.get('.example-component:nth-child(4) .check:first')
+        cy.get('span.check:first')
             .click();
         // Select option primary
-        cy.get('.example-component:nth-child(4) select:first').select('is-primary');
+        cy.get('select:first').select('is-primary');
         // Screenshot example component
         cy.eyesCheckWindow({
             sizeMode: 'selector',
@@ -791,9 +803,12 @@ describe('Visual Regression Testing', () => {
         });
 
         // Select option success
-        cy.get('.example-component:nth-child(4) select:first').select('is-success');
+        cy.get('select:first')
+            .select('is-success');
         // Select option small
-        cy.get('.example-component:nth-child(4) select:nth-child(2)').select('is-small');
+        cy.get('select')
+            .eq(1)
+            .select('is-small');
         // Screenshot example component
         cy.eyesCheckWindow({
             sizeMode: 'selector',
@@ -801,9 +816,12 @@ describe('Visual Regression Testing', () => {
         });
 
         // Select option
-        cy.get('.example-component:nth-child(4) select:first').select('is-warning');
+        cy.get('select:first')
+            .select('is-warning');
         // Select option
-        cy.get('.example-component:nth-child(4) select:nth-child(2)').select('is-large');
+        cy.get('select')
+            .eq(1)
+            .select('is-large');
         // Screenshot example component
         cy.eyesCheckWindow({
             sizeMode: 'selector',
@@ -811,7 +829,8 @@ describe('Visual Regression Testing', () => {
         });
 
         // Select option
-        cy.get('.example-component:nth-child(4) select:first').select('is-danger');
+        cy.get('select:first')
+            .select('is-danger');
         // Screenshot example component
         cy.eyesCheckWindow({
             sizeMode: 'selector',
@@ -846,16 +865,23 @@ describe('Visual Regression Testing', () => {
         });
 
         // Click clickable marker
-        cy.get('.example-component:first span.check:nth-child(3)')
+        cy.get('span.check')
+            .eq(2)
             .click();
         // Click second marker (profile)
-        cy.get('.example-component:first .step-marker:nth-child(2)')
+        cy.get('div.step-marker')
+            .eq(1)
             .click();
         // Click success for profile
-        cy.get('.example-component:first span.check:nth-child(5)');
+        cy.get('span.check')
+            .eq(4)
+            .click();
         // Toggle arrow buttons
-        cy.get('.example-component:first select:nth-child(1)').select('arrow-left');
-        cy.get('.example-component:first select:nth-child(2)').select('arrow-right');
+        cy.get('select:first')
+            .select('arrow-left');
+        cy.get('select')
+            .eq(1)
+            .select('arrow-right');
         // Screenshot affected components
         cy.eyesCheckWindow({
             sizeMode: 'selector',
@@ -863,16 +889,20 @@ describe('Visual Regression Testing', () => {
         });
 
         // Pagination next page
-        cy.get('a.pagination-next:nth-child(1)')
+        cy.get('a.pagination-next:first')
             .click();
-        cy.get('a.pagination-next:nth-child(2)')
+        cy.get('a.pagination-next')
+            .eq(1)
             .click();
-        cy.get('a.pagination-next:nth-child(3)')
+        cy.get('a.pagination-next')
+            .eq(2)
             .click();
-        cy.get('a.pagination-next:nth-child(4)')
+        cy.get('a.pagination-next')
+            .eq(3)
             .click();
-        cy.get('a.pagination-next:nth-child(5)')
-        click();
+        cy.get('a.pagination-next')
+            .eq(4)
+            .click();
         cy.eyesCheckWindow('Take snapshot of window');
     });
 
@@ -885,16 +915,19 @@ describe('Visual Regression Testing', () => {
         cy.eyesCheckWindow('Documentation table');
 
         // Trigger bordered
-        cy.get('.example-component:nth-child(2) span.check:nth-child(1)')
+        cy.get('span.check:first')
             .click();
         // Trigger striped
-        cy.get('.example-component:nth-child(2) span.check:nth-child(2)')
+        cy.get('span.check')
+            .eq(1)
             .click();
         // Trigger narrow
-        cy.get('.example-component:nth-child(2) span.check:nth-child(3)')
+        cy.get('span.check')
+            .eq(2)
             .click();
         // Trigger loading state
-        cy.get('.example-component:nth-child(2) span.check:nth-child(6)')
+        cy.get('span.check')
+            .eq(5)
             .click();
         // Take a snapshot of affected elements
         cy.eyesCheckWindow({
@@ -903,7 +936,8 @@ describe('Visual Regression Testing', () => {
         });
 
         // Trigger empty table
-        cy.get('.example-component:nth-child(2) span.check:nth-child(7)')
+        cy.get('span.check')
+            .eq(6)
             .click();
         // Take a snapshot of affected elements
         cy.eyesCheckWindow({
@@ -912,16 +946,25 @@ describe('Visual Regression Testing', () => {
         });
 
         // Click simple pagination
-        cy.get('.example-component:nth-child(5) span.check:nth-child(2)')
+        cy.get('span.check')
+            .eq(9)
             .click();
         // Sort by descending
-        cy.get('.example-component:nth-child(5) select:first').select('desc');
+        cy.get('select')
+            .eq(1)
+            .select('desc');
         // Sort by 15 per page
-        cy.get('.example-component:nth-child(5) select:nth-child(2)').select('15');
+        cy.get('select')
+            .eq(2)
+            .select('15');
         // Show double pagination
-        cy.get('.example-component:nth-child(5) select:nth-child(3)').select('both');
+        cy.get('select')
+            .eq(3)
+            .select('both');
         // Show chevron order
-        cy.get('.example-component:nth-child(5) select:nth-child(4)').select('chevron-up');
+        cy.get('select')
+            .eq(4)
+            .select('chevron-up');
         // Screenshot changes
         cy.eyesCheckWindow({
             sizeMode: 'selector',
@@ -941,7 +984,8 @@ describe('Visual Regression Testing', () => {
         cy.get('.example-component:first span.check')
             .click();
         // Click on books tab
-        cy.get('.example-component:first li:nth-child(3)')
+        cy.get('.tabs a')
+            .eq(2)
             .click();
         cy.eyesCheckWindow({
             sizeMode: 'selector',
@@ -949,14 +993,14 @@ describe('Visual Regression Testing', () => {
         });
     });
 
-    it('...documentation/tag should load correct elements and functionalities on page', () => {
-        cy.visit(`http://localhost:8080/documentation/tag`);
+    // it('...documentation/tag should load correct elements and functionalities on page', () => {
+    //     cy.visit(`http://localhost:8080/documentation/tag`);
 
-        // Let browser load
-        cy.wait(1000);
-        // Screenshot window
-        cy.eyesCheckWindow('Documentation tag');
-    });
+    //     // Let browser load
+    //     cy.wait(1000);
+    //     // Screenshot window
+    //     cy.eyesCheckWindow('Documentation tag');
+    // });
 
     it('...documentation/toast should load correct elements and functionalities on page', () => {
         cy.visit(`http://localhost:8080/documentation/toast`);
@@ -967,7 +1011,8 @@ describe('Visual Regression Testing', () => {
         cy.eyesCheckWindow('Documentation toast');
 
         // Click success button
-        cy.get('.example-component:first .is-success')
+        cy.get('button.is-medium')
+            .eq(1)
             .click();
         // Let browser load
         cy.wait(1000);
@@ -993,15 +1038,18 @@ describe('Visual Regression Testing', () => {
         });
 
         // Click animated button
-        cy.get('.example-component:nth-child(2) button:nth-child(2)')
-            // Screenshot affected elements
+        cy.get('button.button')
+            .eq(9)
+            .click();
+        // Screenshot affected elements
         cy.eyesCheckWindow({
             sizeMode: 'selector',
             selector: '.example-component:nth-child(2)'
         });
 
         // Click second dark multilined button
-        cy.get('.example-component:nth-child(3) button:nth-child(2)')
+        cy.get('.button.is-dark')
+            .eq(5)
             .click();
         // Screenshot affected elements
         cy.eyesCheckWindow({
@@ -1010,7 +1058,8 @@ describe('Visual Regression Testing', () => {
         });
 
         // Click right dark button
-        cy.get('.example-component:nth-child(4) button:nth-child(3)')
+        cy.get('.button.is-dark')
+            .eq(7)
             .click();
         // Screenshot affected elements
         cy.eyesCheckWindow({
