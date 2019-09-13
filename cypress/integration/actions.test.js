@@ -3,7 +3,6 @@ describe('Visual Regression Testing', () => {
         cy.eyesOpen({
             appName: 'Buefy',
             testName: 'Visual Regression Tests',
-            apiKey: 'i7KNzc5SWdw5bseLH0o0zGWFbNNvKrZKyMfWYQZli5A110',
             browser: [{
                     name: 'chrome',
                     width: 1200,
